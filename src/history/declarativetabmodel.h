@@ -42,6 +42,7 @@ public:
         TabIdRole
     };
 
+    Q_INVOKABLE void move(int from, int to);
     Q_INVOKABLE void remove(int index);
     Q_INVOKABLE void clear();
     Q_INVOKABLE bool activateTab(const QString &url);

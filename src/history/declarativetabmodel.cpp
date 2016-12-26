@@ -232,6 +232,16 @@ QVariant DeclarativeTabModel::data(const QModelIndex & index, int role) const {
     return QVariant();
 }
 
+void DeclarativeTabModel::move(int from, int to)
+{
+    const int n = m_tabs.count();
+    if (from >= 0 && from < n && to >= 0 && to < n && from != to) {
+        beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
+        m_tabs.move(from, to);
+        endMoveRows();
+    }
+}
+
 bool DeclarativeTabModel::loaded() const
 {
     return m_loaded;
